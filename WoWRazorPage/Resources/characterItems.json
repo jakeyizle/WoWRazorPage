@@ -1,0 +1,374 @@
+[
+    {
+        "id": 168353,
+        "stats": [
+            {
+                "stat": 73,
+                "amount": 1093
+            },
+            {
+                "stat": 7,
+                "amount": 2579
+            }
+        ],
+        "inventoryType": 1,
+        "itemLevel": 445,
+        "sourceId": 0,
+        "name": "Hood of Lightless Depths",
+        "statValue": 0.0
+    },
+    {
+        "id": 158075,
+        "stats": [
+            {
+                "stat": 32,
+                "amount": 313
+            },
+            {
+                "stat": 49,
+                "amount": 313
+            },
+            {
+                "stat": 36,
+                "amount": 313
+            },
+            {
+                "stat": 7,
+                "amount": 632
+            },
+            {
+                "stat": 71,
+                "amount": 342
+            }
+        ],
+        "inventoryType": 2,
+        "itemLevel": 451,
+        "sourceId": 0,
+        "name": "Heart of Azeroth",
+        "statValue": 0.0
+    },
+    {
+        "id": 168359,
+        "stats": [
+            {
+                "stat": 73,
+                "amount": 819
+            },
+            {
+                "stat": 7,
+                "amount": 1931
+            }
+        ],
+        "inventoryType": 3,
+        "itemLevel": 445,
+        "sourceId": 0,
+        "name": "Abyssal Commander's Mantle",
+        "statValue": 0.0
+    },
+    {
+        "id": 168391,
+        "stats": [
+            {
+                "stat": 32,
+                "amount": 58
+            },
+            {
+                "stat": 49,
+                "amount": 105
+            },
+            {
+                "stat": 71,
+                "amount": 281
+            },
+            {
+                "stat": 7,
+                "amount": 504
+            }
+        ],
+        "inventoryType": 16,
+        "itemLevel": 430,
+        "sourceId": 0,
+        "name": "Cloak of Ill Tidings",
+        "statValue": 0.0
+    },
+    {
+        "id": 168355,
+        "stats": [
+            {
+                "stat": 73,
+                "amount": 1093
+            },
+            {
+                "stat": 7,
+                "amount": 2579
+            }
+        ],
+        "inventoryType": 20,
+        "itemLevel": 445,
+        "sourceId": 0,
+        "name": "Servitor's Heartguard",
+        "statValue": 0.0
+    },
+    {
+        "id": 168382,
+        "stats": [
+            {
+                "stat": 32,
+                "amount": 105
+            },
+            {
+                "stat": 73,
+                "amount": 281
+            },
+            {
+                "stat": 49,
+                "amount": 58
+            },
+            {
+                "stat": 7,
+                "amount": 504
+            }
+        ],
+        "inventoryType": 9,
+        "itemLevel": 430,
+        "sourceId": 0,
+        "name": "Arcanamental Bindings",
+        "statValue": 0.0
+    },
+    {
+        "id": 170335,
+        "stats": [
+            {
+                "stat": 32,
+                "amount": 118
+            },
+            {
+                "stat": 40,
+                "amount": 91
+            },
+            {
+                "stat": 73,
+                "amount": 341
+            },
+            {
+                "stat": 7,
+                "amount": 605
+            }
+        ],
+        "inventoryType": 10,
+        "itemLevel": 420,
+        "sourceId": 0,
+        "name": "Poen's Deepsea Handgrips",
+        "statValue": 0.0
+    },
+    {
+        "id": 168870,
+        "stats": [
+            {
+                "stat": 32,
+                "amount": 146
+            },
+            {
+                "stat": 73,
+                "amount": 375
+            },
+            {
+                "stat": 36,
+                "amount": 71
+            },
+            {
+                "stat": 7,
+                "amount": 673
+            }
+        ],
+        "inventoryType": 6,
+        "itemLevel": 430,
+        "sourceId": 0,
+        "name": "Tanglekelp Waistwrap",
+        "statValue": 0.0
+    },
+    {
+        "id": 168383,
+        "stats": [
+            {
+                "stat": 40,
+                "amount": 100
+            },
+            {
+                "stat": 73,
+                "amount": 575
+            },
+            {
+                "stat": 36,
+                "amount": 205
+            },
+            {
+                "stat": 7,
+                "amount": 1053
+            }
+        ],
+        "inventoryType": 7,
+        "itemLevel": 445,
+        "sourceId": 0,
+        "name": "Pelagos Predator's Legguards",
+        "statValue": 0.0
+    },
+    {
+        "id": 159371,
+        "stats": [
+            {
+                "stat": 40,
+                "amount": 132
+            },
+            {
+                "stat": 73,
+                "amount": 411
+            },
+            {
+                "stat": 49,
+                "amount": 93
+            },
+            {
+                "stat": 7,
+                "amount": 749
+            }
+        ],
+        "inventoryType": 8,
+        "itemLevel": 440,
+        "sourceId": 0,
+        "name": "Boots of the Headlong Conqueror",
+        "statValue": 0.0
+    },
+    {
+        "id": 168890,
+        "stats": [
+            {
+                "stat": 32,
+                "amount": 321
+            },
+            {
+                "stat": 49,
+                "amount": 189
+            },
+            {
+                "stat": 7,
+                "amount": 504
+            }
+        ],
+        "inventoryType": 11,
+        "itemLevel": 430,
+        "sourceId": 0,
+        "name": "Ring of the Highborne Courtier",
+        "statValue": 0.0
+    },
+    {
+        "id": 158318,
+        "stats": [
+            {
+                "stat": 32,
+                "amount": 346
+            },
+            {
+                "stat": 49,
+                "amount": 139
+            },
+            {
+                "stat": 7,
+                "amount": 430
+            }
+        ],
+        "inventoryType": 11,
+        "itemLevel": 415,
+        "sourceId": 0,
+        "name": "Murky Cerulean Signet",
+        "statValue": 0.0
+    },
+    {
+        "id": 165569,
+        "stats": [
+            {
+                "stat": 5,
+                "amount": 413
+            }
+        ],
+        "inventoryType": 12,
+        "itemLevel": 415,
+        "sourceId": 0,
+        "name": "Ward of Envelopment",
+        "statValue": 0.0
+    },
+    {
+        "id": 169312,
+        "stats": [
+            {
+                "stat": 5,
+                "amount": 546
+            },
+            {
+                "stat": 62,
+                "amount": 98
+            }
+        ],
+        "inventoryType": 12,
+        "itemLevel": 445,
+        "sourceId": 0,
+        "name": "Luminous Jellyweed",
+        "statValue": 0.0
+    },
+    {
+        "id": 158369,
+        "stats": [
+            {
+                "stat": 40,
+                "amount": 62
+            },
+            {
+                "stat": 36,
+                "amount": 88
+            },
+            {
+                "stat": 5,
+                "amount": 274
+            },
+            {
+                "stat": 7,
+                "amount": 499
+            }
+        ],
+        "inventoryType": 13,
+        "itemLevel": 440,
+        "sourceId": 0,
+        "name": "Galvanized Stormcrusher",
+        "statValue": 0.0
+    },
+    {
+        "id": 168475,
+        "stats": [
+            {
+                "stat": 32,
+                "amount": 96
+            },
+            {
+                "stat": 49,
+                "amount": 76
+            },
+            {
+                "stat": 4,
+                "amount": 323
+            },
+            {
+                "stat": 5,
+                "amount": 992
+            },
+            {
+                "stat": 7,
+                "amount": 592
+            }
+        ],
+        "inventoryType": 14,
+        "itemLevel": 445,
+        "sourceId": 0,
+        "name": "Bulwark of the Seaborn Avatar",
+        "statValue": 0.0
+    }
+]
