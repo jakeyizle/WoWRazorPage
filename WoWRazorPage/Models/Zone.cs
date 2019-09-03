@@ -12,5 +12,10 @@ namespace WoWRazorPage.Models
         public string name;
         public int id;
         public List<Boss> bosses;
+
+        //public int ItemCount()
+        //{
+        //    return bosses.Sum(x => x.items.Count());
+        //}
     }
 }
