@@ -3,37 +3,44 @@
 @{
     ViewData["Title"] = "Home";
 }
-
+    <!DOCTYPE html>
 <h2>Home</h2>
-
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link href="@Url.Content("~/css/CollapseList.css")" rel="stylesheet" type="text/css" />    
+</head>
 <form method="post" asp-route-name="Peevo" asp-route-realm="Emerald Dream">
     <button class="btn btn-default"> ON POST</button>
 </form>
-@if (@Model.zones.Any())
-{
-    @for (int i = 0; i < Model.zones.Count(); i++)
-    {
-        <ul>
-            <li>
-                @Model.zones[i].name
 
-                @for (int j = 0; j < Model.zones[i].bosses.Count(); j++)
+@if (Model.zones.Any())
+{
+<div class="list-group list-group-root well">
+    @foreach (var zone in Model.zones)
+    {
+        <a href="#z-@zone.id" class="list-group-item" data-toggle="collapse">
+            <i class="glyphicon glyphicon-chevron-right"></i>@zone.name - @zone.bosses.Sum(boss => boss.items.Count())
+        </a>
+        <div class="list-group collapse" id="z-@zone.id">
+            @foreach (var boss in zone.bosses)
+            {
+            <a href="#b-@boss.id" class="list-group-item" data-toggle="collapse">
+                <i class="glyphicon glyphicon-chevron-right"></i>@boss.name - @boss.items.Count()
+            </a>
+            <div class="list-group collapse" id="b-@boss.id">
+                @foreach (var item in boss.items)
                 {
-                    <ul>
-                        <li>
-                            @Model.zones[i].bosses[j].name
-                            @for (int k = 0; k < Model.zones[i].bosses[j].items.Count(); k++)
-                            {
-                                <ul>
-                                    <li>
-                                        @Model.zones[i].bosses[j].items[k].name - @Model.zones[i].bosses[j].items[k].statImprovement
-                                    </li>
-                                </ul>
-                            }                            
-                        </li>
-                    </ul>
+                <a href="https://wowhead.com/item=@item.id" class="list-group-item">  @item.name - @item.PercentImprovement() </a>
                 }
-            </li>
-        </ul>
-        }
+            </div>
+            }
+        </div>
     }
+</div>
+}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://wow.zamimg.com/widgets/power.js"></script>
