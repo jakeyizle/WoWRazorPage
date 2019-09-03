@@ -18,5 +18,11 @@ namespace WoWRazorPage.Models
         public string name;
         public double statValue;
         public double statImprovement;
+        public string PercentImprovement()
+        {
+            var change = statImprovement / statValue;
+            var percent = change * 100;
+            return Math.Round(percent, 2).ToString() + "%";
+        }
     }
 }

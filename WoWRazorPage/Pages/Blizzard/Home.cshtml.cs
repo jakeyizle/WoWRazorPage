@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WoWRazorPage.Models;
-using WoWRazorPage.API;
+using WoWRazorPage.Controller;
 namespace WoWRazorPage.Pages.Blizzard
 {
     public class HomeModel : PageModel
@@ -16,7 +16,7 @@ namespace WoWRazorPage.Pages.Blizzard
         public string MainStatName { get; set; }
 
         public List<Zone> zones = new List<Zone>();
-        BlizzardController controller = new BlizzardController();
+        readonly BlizzardController controller = new BlizzardController();
         public void OnGet()
         {
 
@@ -26,7 +26,7 @@ namespace WoWRazorPage.Pages.Blizzard
         {
             Weights.AddRange(new List<double> { 1, 2, 3, 5, 6 });
             MainStatName = "Intellect";
-            zones = await controller.GetFullAsync(Weights[0], Weights[1], Weights[2], Weights[3], Weights[4], MainStatName);
+            zones = await controller.GetZonesAsync(Weights[0], Weights[1], Weights[2], Weights[3], Weights[4], MainStatName);
             return Page();
         }
     }
