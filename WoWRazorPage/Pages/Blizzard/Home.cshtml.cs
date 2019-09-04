@@ -6,14 +6,29 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WoWRazorPage.Models;
 using WoWRazorPage.Controller;
+using System.ComponentModel.DataAnnotations;
+
 namespace WoWRazorPage.Pages.Blizzard
 {
+    [BindProperties]
     public class HomeModel : PageModel
-    {
-        [BindProperty]
-        public List<double> Weights { get; set; }
-        [BindProperty]
+    {       
+        [Required]
+        public double MainStatWeight { get; set; }
+        [Required]
+        public double CritWeight { get; set; }
+        [Required]
+        public double HasteWeight { get; set; }
+        [Required]
+        public double MasteryWeight { get; set; }
+        [Required]
+        public double VersatilityWeight { get; set; }
+        [Required]
         public string MainStatName { get; set; }
+        [Required]
+        public string CharacterName { get; set; }
+        [Required]
+        public string Realm { get; set; }
 
         public List<Zone> zones = new List<Zone>();
         readonly BlizzardController controller = new BlizzardController();
@@ -22,11 +37,12 @@ namespace WoWRazorPage.Pages.Blizzard
 
         }
 
-        public async Task<PageResult> OnPostAsync(string name, string realm)
-        {
-            Weights.AddRange(new List<double> { 1, 2, 3, 5, 6 });
-            MainStatName = "Intellect";
-            zones = await controller.GetZonesAsync(Weights[0], Weights[1], Weights[2], Weights[3], Weights[4], MainStatName);
+        public async Task<PageResult> OnPostAsync()
+        {            
+            if (ModelState.IsValid)
+            { 
+            zones = await controller.GetZonesAsync(CharacterName, Realm, MainStatWeight, CritWeight, HasteWeight, MasteryWeight, VersatilityWeight, MainStatName);
+            }
             return Page();
         }
     }

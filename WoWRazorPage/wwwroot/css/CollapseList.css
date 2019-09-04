@@ -33,3 +33,13 @@
 .list-group-item .glyphicon {
     margin-right: 5px;
 }
+
+.error {
+    color: #FF0000 !important; /* red */
+    fill: aqua !important;
+    padding: 50px;
+}
+
+.my-valid-class {
+    color: #00CC00; /* green */
+}
