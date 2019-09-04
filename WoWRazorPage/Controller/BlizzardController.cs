@@ -25,12 +25,12 @@ namespace WoWRazorPage.Controller
         readonly string baseDir = Directory.GetCurrentDirectory();
 
         [HttpGet]
-        public async Task<List<Zone>> GetZonesAsync(double mainStatWeight, double critWeight, double hasteWeight, double masteryWeight, double versatilityWeight, string mainStatName)
+        public async Task<List<Zone>> GetZonesAsync(string characterName, string realm, double mainStatWeight, double critWeight, double hasteWeight, double masteryWeight, double versatilityWeight, string mainStatName)
         {
             List<Item> characterItems;
             //For testing purposes
             try {
-                characterItems = await CharacterItemsAsync("Peevo", "Emerald Dream");
+                characterItems = await CharacterItemsAsync(characterName, realm);
             } catch
             {
                 using (StreamReader r = new StreamReader(Path.Combine(baseDir, "Resources/characterItems.json")))

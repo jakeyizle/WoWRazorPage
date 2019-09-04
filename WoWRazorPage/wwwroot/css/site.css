@@ -35,3 +35,11 @@ body {
         display: none;
     }
 }
+
+.my-error-class {
+    color: #FF0000; /* red */
+}
+
+.my-valid-class {
+    color: #00CC00; /* green */
+}
