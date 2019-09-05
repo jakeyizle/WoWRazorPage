@@ -129,17 +129,23 @@ namespace WoWRazorPage.Service
 
             foreach (Zone zone in zones)
             {
-                var zoneBosses = bosses.Where(x => x.zoneId == zone.id);
-                zoneBosses = zoneBosses.DistinctBy(y => y.id);
+                var zoneBosses = bosses.Where(x => x.ZoneId == zone.Id);
+                zoneBosses = zoneBosses.DistinctBy(y => y.Id);
                 foreach (Boss boss in zoneBosses)
                 {
-                    boss.items = upgradeItems.Where(y => y.sourceId == boss.id).OrderByDescending(z => z.statImprovement).ToList();
-                    boss.items = boss.items.DistinctBy(w => w.id).ToList();
+                    boss.Items = upgradeItems.Where(y => y.sourceId == boss.Id).OrderByDescending(z => z.statImprovement).ToList();
+                    boss.Items = boss.Items.DistinctBy(w => w.id).ToList();
+                    int bonusId = 0;
+                    if (!zone.IsRaid)
+                    {
+                        bonusId = 1602;
+                    }
+                    boss.Items.Pipe(item => item.bonusId = bonusId);
                 }
-                zone.bosses = zoneBosses.Where(x => x.items.Count() > 0).OrderByDescending(y => y.items.Count()).ToList();                
+                zone.Bosses = zoneBosses.Where(x => x.Items.Count() > 0).OrderByDescending(y => y.Items.Count()).ToList();                
             }
 
-            return zones.Where(x=>x.bosses.Count() > 0).OrderByDescending(x => x.bosses.Sum(y => y.items.Count())).ToList();
+            return zones.Where(x=>x.Bosses.Count() > 0).OrderByDescending(x => x.Bosses.Sum(y => y.Items.Count())).ToList();
         }
 
         public async Task<List<Item>> CharacterItemsAsync(string characterName, string realm)

@@ -12,6 +12,7 @@ namespace WoWRazorPage.Models
         public int id;
         [JsonProperty("stats")]
         public List<Stat> Stats;
+        public int bonusId;
         public int inventoryType;
         public int itemLevel;
         public int sourceId;

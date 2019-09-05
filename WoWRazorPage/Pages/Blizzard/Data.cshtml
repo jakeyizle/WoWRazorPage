@@ -16,19 +16,19 @@
         <div class="list-group list-group-root well">
             @foreach (var zone in Model.zones)
             {
-                <a href="#z-@zone.id" class="list-group-item" data-toggle="collapse">
-                    <i class="glyphicon glyphicon-chevron-right"></i>@zone.name - @zone.bosses.Sum(boss => boss.items.Count())
+                <a href="#z-@zone.Id" class="list-group-item" data-toggle="collapse">
+                    <i class="glyphicon glyphicon-chevron-right"></i>@zone.Name - @zone.Bosses.Sum(boss => boss.Items.Count())
                 </a>
-                <div class="list-group collapse" id="z-@zone.id">
-                    @foreach (var boss in zone.bosses)
+                <div class="list-group collapse" id="z-@zone.Id">
+                    @foreach (var boss in zone.Bosses)
                     {
-                        <a href="#b-@boss.id" class="list-group-item" data-toggle="collapse">
-                            <i class="glyphicon glyphicon-chevron-right"></i>@boss.name - @boss.items.Count()
+                        <a href="#b-@boss.Id" class="list-group-item" data-toggle="collapse">
+                            <i class="glyphicon glyphicon-chevron-right"></i>@boss.Name - @boss.Items.Count()
                         </a>
-                        <div class="list-group collapse" id="b-@boss.id">
-                            @foreach (var item in boss.items)
-                            {
-                                <a href="https://wowhead.com/item=@item.id" class="list-group-item">  @item.name - @item.PercentImprovement() </a>
+                        <div class="list-group collapse" id="b-@boss.Id">
+                            @foreach (var item in boss.Items)
+                    {
+                                <a href="https://wowhead.com/item=@item.id&bonus=@item.bonusId" class="list-group-item">  @item.name - @item.PercentImprovement() </a>
                             }
                         </div>
                     }
