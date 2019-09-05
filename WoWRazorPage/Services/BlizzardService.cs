@@ -11,11 +11,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using WoWRazorPage.Models;
 using MoreLinq;
-namespace WoWRazorPage.Controller
+namespace WoWRazorPage.Service
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class BlizzardController : ControllerBase, IBlizzardController
+    public class BlizzardService : IBlizzardService
     {
         readonly HttpClient client = new HttpClient
         {
@@ -25,7 +23,6 @@ namespace WoWRazorPage.Controller
         readonly string baseDir = Directory.GetCurrentDirectory();
         public List<Zone> Zones { get; set; }
 
-        [HttpGet]
         public async Task<List<Zone>> GetZonesAsync(string characterName, string realm, double mainStatWeight, double critWeight, double hasteWeight, double masteryWeight, double versatilityWeight, string mainStatName)
         {
             List<Item> characterItems;
