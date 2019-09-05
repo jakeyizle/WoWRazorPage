@@ -184,7 +184,6 @@ namespace WoWRazorPage.Service
             return characterItems.ToList();
         }
 
-
         public async Task<string> TokenAsync()
         {
             HttpClient tokenClient = new HttpClient
