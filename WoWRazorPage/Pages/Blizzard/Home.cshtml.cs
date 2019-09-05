@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using WoWRazorPage.Models;
 using WoWRazorPage.Controller;
 using System.ComponentModel.DataAnnotations;
+using Newtonsoft.Json;
 
 namespace WoWRazorPage.Pages.Blizzard
 {
@@ -31,17 +32,24 @@ namespace WoWRazorPage.Pages.Blizzard
         public string Realm { get; set; }
 
         public List<Zone> zones = new List<Zone>();
-        readonly BlizzardController controller = new BlizzardController();
+        private readonly IBlizzardController _blizzardController;
+
+        public HomeModel(IBlizzardController blizzardController)
+        {
+            _blizzardController = blizzardController;
+        }
         public void OnGet()
         {
 
         }
 
-        public async Task<PageResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync()
         {            
             if (ModelState.IsValid)
             { 
-            zones = await controller.GetZonesAsync(CharacterName, Realm, MainStatWeight, CritWeight, HasteWeight, MasteryWeight, VersatilityWeight, MainStatName);
+                zones = await _blizzardController.GetZonesAsync(CharacterName, Realm, MainStatWeight, CritWeight, HasteWeight, MasteryWeight, VersatilityWeight, MainStatName);
+                _blizzardController.Zones = zones;                
+                return RedirectToPage("Data");
             }
             return Page();
         }

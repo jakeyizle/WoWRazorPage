@@ -15,7 +15,7 @@ namespace WoWRazorPage.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BlizzardController : ControllerBase
+    public class BlizzardController : ControllerBase, IBlizzardController
     {
         readonly HttpClient client = new HttpClient
         {
@@ -23,6 +23,7 @@ namespace WoWRazorPage.Controller
         };
         string token;
         readonly string baseDir = Directory.GetCurrentDirectory();
+        public List<Zone> Zones { get; set; }
 
         [HttpGet]
         public async Task<List<Zone>> GetZonesAsync(string characterName, string realm, double mainStatWeight, double critWeight, double hasteWeight, double masteryWeight, double versatilityWeight, string mainStatName)
