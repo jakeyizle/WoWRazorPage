@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using WoWRazorPage.Controller;
+using WoWRazorPage.Service;
 using WoWRazorPage.Models;
 
 namespace WoWRazorPage.Pages.Blizzard
@@ -13,9 +13,9 @@ namespace WoWRazorPage.Pages.Blizzard
     public class DataModel : PageModel
     {
         public List<Zone> zones = new List<Zone>();
-        private readonly IBlizzardController _blizzardController;
+        private readonly IBlizzardService _blizzardController;
 
-        public DataModel(IBlizzardController blizzardController)
+        public DataModel(IBlizzardService blizzardController)
         {
             _blizzardController = blizzardController;
 

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using WoWRazorPage.Controller;
+using WoWRazorPage.Service;
 
 namespace WoWRazorPage
 {
@@ -34,7 +34,7 @@ namespace WoWRazorPage
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddSingleton<IBlizzardController, BlizzardController>();
+            services.AddSingleton<IBlizzardService, BlizzardService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
