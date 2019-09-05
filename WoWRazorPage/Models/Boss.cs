@@ -8,9 +8,9 @@ namespace WoWRazorPage.Models
 {
     public class Boss
     {
-        public string name;
-        public int id;
-        public int zoneId;
-        public List<Item> items;
+        public string Name;
+        public int Id;
+        public int ZoneId;
+        public List<Item> Items;
     }
 }
