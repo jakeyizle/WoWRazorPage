@@ -103,13 +103,22 @@ namespace WoWRazorPage.Service
 
             List<Item> upgradeItems = new List<Item>();
 
-            foreach (Item item in characterItems)
+
+            foreach (Item characterItem in characterItems)
             {
-                var tempItems = items.Where(x => x.inventoryType == item.inventoryType && x.statValue > item.statValue);
-                foreach (Item tempItem in tempItems)
+                foreach (List<Item> itemList in items.Where(x => x.inventoryType == characterItem.inventoryType).GroupBy(y => y.id))
                 {
-                    tempItem.statImprovement = tempItem.statValue - item.statValue;
-                    upgradeItems.Add(tempItem);
+                    itemList.OrderBy(z => z.itemLevel);                    
+                    for (int i = 0; i < itemList.Count(); i++)
+                    {
+                        if (itemList[i].statValue > characterItem.statValue)
+                        {
+                            itemList[i].statImprovement = itemList[i].statValue - characterItem.statValue;
+                            itemList[i].forgeNumber = i;
+                            upgradeItems.Add(itemList[i]);
+                            break;
+                        }
+                    }
                 }
             }
 
@@ -133,14 +142,7 @@ namespace WoWRazorPage.Service
                 zoneBosses = zoneBosses.DistinctBy(y => y.Id);
                 foreach (Boss boss in zoneBosses)
                 {
-                    boss.Items = upgradeItems.Where(y => y.sourceId == boss.Id).OrderByDescending(z => z.statImprovement).ToList();
-                    boss.Items = boss.Items.DistinctBy(w => w.id).ToList();
-                    int bonusId = 0;
-                    if (!zone.IsRaid)
-                    {
-                        bonusId = 1602;
-                    }
-                    boss.Items.Pipe(item => item.bonusId = bonusId);
+                    boss.Items = upgradeItems.Where(y => y.sourceId == boss.Id).OrderByDescending(z => z.statImprovement).DistinctBy(w => w.id).ToList();
                 }
                 zone.Bosses = zoneBosses.Where(x => x.Items.Count() > 0).OrderByDescending(y => y.Items.Count()).ToList();                
             }
