@@ -19,6 +19,7 @@ namespace WoWRazorPage.Models
         public string name;
         public double statValue;
         public double statImprovement;
+        public int forgeNumber;
         public string PercentImprovement()
         {
             var change = statImprovement / statValue;
