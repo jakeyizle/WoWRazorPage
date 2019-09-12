@@ -103,12 +103,26 @@ namespace WoWRazorPage.Service
 
             List<Item> upgradeItems = new List<Item>();
 
-
+            //better way to group?
             foreach (Item characterItem in characterItems)
             {
-                foreach (List<Item> itemList in items.Where(x => x.inventoryType == characterItem.inventoryType).GroupBy(y => y.id))
+                //foreach (int itemId in items.Where(x => x.inventoryType == characterItem.inventoryType).Select(z => z.id).ToList())
+                //{
+                //    var itemList = items.Where(x => x.id == itemId).OrderBy(y => y.itemLevel).ToList();
+                //    for (int i = 0; i < itemList.Count(); i++)
+                //    {
+                //        if (itemList[i].statValue > characterItem.statValue)
+                //        {
+                //            itemList[i].statImprovement = itemList[i].statValue - characterItem.statValue;
+                //            itemList[i].forgeNumber = i;
+                //            upgradeItems.Add(itemList[i]);
+                //            break;
+                //        }
+                //    }
+                //}
+                foreach (var groupedItems in items.Where(x => x.inventoryType == characterItem.inventoryType).GroupBy(y => y.id))
                 {
-                    itemList.OrderBy(z => z.itemLevel);                    
+                    var itemList = groupedItems.OrderBy(z => z.itemLevel).ToList();
                     for (int i = 0; i < itemList.Count(); i++)
                     {
                         if (itemList[i].statValue > characterItem.statValue)
