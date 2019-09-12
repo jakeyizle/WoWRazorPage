@@ -28,7 +28,7 @@
                         <div class="list-group collapse" id="b-@boss.Id">
                             @foreach (var item in boss.Items)
                     {
-                                <a href="https://wowhead.com/item=@item.id&bonus=@item.bonusId" class="list-group-item">  @item.name - @item.PercentImprovement() </a>
+                                <a href="https://wowhead.com/item=@item.id&bonus=@item.bonusId" class="list-group-item">  @item.name - @item.PercentImprovement() - @item.forgeNumber </a>
                             }
                         </div>
                     }
