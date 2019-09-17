@@ -106,20 +106,6 @@ namespace WoWRazorPage.Service
             //better way to group?
             foreach (Item characterItem in characterItems)
             {
-                //foreach (int itemId in items.Where(x => x.inventoryType == characterItem.inventoryType).Select(z => z.id).ToList())
-                //{
-                //    var itemList = items.Where(x => x.id == itemId).OrderBy(y => y.itemLevel).ToList();
-                //    for (int i = 0; i < itemList.Count(); i++)
-                //    {
-                //        if (itemList[i].statValue > characterItem.statValue)
-                //        {
-                //            itemList[i].statImprovement = itemList[i].statValue - characterItem.statValue;
-                //            itemList[i].forgeNumber = i;
-                //            upgradeItems.Add(itemList[i]);
-                //            break;
-                //        }
-                //    }
-                //}
                 foreach (var groupedItems in items.Where(x => x.inventoryType == characterItem.inventoryType).GroupBy(y => y.id))
                 {
                     var itemList = groupedItems.OrderBy(z => z.itemLevel).ToList();
@@ -158,7 +144,7 @@ namespace WoWRazorPage.Service
                 {
                     boss.Items = upgradeItems.Where(y => y.sourceId == boss.Id).OrderByDescending(z => z.statImprovement).DistinctBy(w => w.id).ToList();
                 }
-                zone.Bosses = zoneBosses.Where(x => x.Items.Count() > 0).OrderByDescending(y => y.Items.Count()).ToList();                
+                zone.Bosses = zoneBosses.Where(x => x.Items.Count() > 0).ToList();                
             }
 
             return zones.Where(x=>x.Bosses.Count() > 0).OrderByDescending(x => x.Bosses.Sum(y => y.Items.Count())).ToList();
