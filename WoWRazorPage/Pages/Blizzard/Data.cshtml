@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Data";
 }
+
 <head>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link href="@Url.Content("~/css/CollapseList.css")" rel="stylesheet" type="text/css" />
@@ -16,13 +17,13 @@
         <div class="list-group list-group-root well">
             @foreach (var zone in Model.zones)
             {
-                <a href="#z-@zone.Id" class="list-group-item" data-toggle="collapse">
+                <a href="#z-@zone.Id" class="list-group-item" data-toggle="collapse" aria-expanded="false">
                     <i class="glyphicon glyphicon-chevron-right"></i>@zone.Name - @zone.Bosses.Sum(boss => boss.Items.Count())
                 </a>
                 <div class="list-group collapse" id="z-@zone.Id">
                     @foreach (var boss in zone.Bosses)
                     {
-                        <a href="#b-@boss.Id" class="list-group-item" data-toggle="collapse">
+                        <a href="#b-@boss.Id" class="list-group-item" data-toggle="collapse" aria-expanded="false">
                             <i class="glyphicon glyphicon-chevron-right"></i>@boss.Name - @boss.Items.Count()
                         </a>
                         <div class="list-group collapse" id="b-@boss.Id">
@@ -43,8 +44,13 @@
 <script src="https://wow.zamimg.com/widgets/power.js"></script>
 <script>
     $(document).ready(function () {
-        $('.glyphicon').click(function () {
-            $(this).toggleClass("glyphicon-chevron-down").toggleClass("glyphicon-chevron-right");
+        $('.list-group-item').click(function () {
+            if ($(this).attr('aria-expanded') === 'false') {
+                $(this).children(".glyphicon-chevron-right").toggleClass("glyphicon-chevron-down").toggleClass("glyphicon-chevron-right");
+            }
+            else if ($(this).attr('aria-expanded') === 'true') {
+                $(this).children(".glyphicon-chevron-down").toggleClass("glyphicon-chevron-down").toggleClass("glyphicon-chevron-right");
+            }
         });
     });
 </script>
