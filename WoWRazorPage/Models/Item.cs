@@ -20,11 +20,22 @@ namespace WoWRazorPage.Models
         public double statValue;
         public double statImprovement;
         public int forgeNumber;
+
         public string PercentImprovement()
         {
             var change = statImprovement / statValue;
             var percent = change * 100;
             return Math.Round(percent, 2).ToString() + "%";
         }
+
+        public string ForgeString()
+        {
+            return (forgeNumber > 2) ?
+                $"- Titanforged +{forgeNumber}" :
+                (forgeNumber > 0) ?
+                    $"- Warforged +{forgeNumber}" :
+                    "";
+        }
+
     }
 }
