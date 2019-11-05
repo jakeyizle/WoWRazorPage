@@ -27,7 +27,8 @@ namespace WoWRazorPage.Service
         {
             List<Item> characterItems;
             //For testing purposes
-            try {
+            try
+            {
                 characterItems = await CharacterItemsAsync(characterName, realm);
             } catch
             {
@@ -42,8 +43,7 @@ namespace WoWRazorPage.Service
             characterItems = characterItems.Where(x => x.id != 2 && x.id != 12).ToList();
 
             List<Item> items;
-            //fix this shit lul
-            Dictionary<int, double> statWeightDict = new Dictionary<int, double>
+             Dictionary<int, double> statWeightDict = new Dictionary<int, double>
             {
                 { 32, critWeight },
                 { 36, hasteWeight },

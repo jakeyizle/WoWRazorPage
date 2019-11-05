@@ -9,7 +9,7 @@
     <link href="@Url.Content("~/css/CollapseList.css")" rel="stylesheet" type="text/css" />
 </head>
 <div>
-    <a button class="btn btn-default" href="/blizzard/home"> Search Again</a>
+    <a button class="btn btn-default" href="/index"> Search Again</a>
 </div>
 <div>
     @if (Model.zones.Any())
@@ -18,18 +18,18 @@
             @foreach (var zone in Model.zones)
             {
                 <a href="#z-@zone.Id" class="list-group-item" data-toggle="collapse" aria-expanded="false">
-                    <i class="glyphicon glyphicon-chevron-right"></i>@zone.Name - @zone.Bosses.Sum(boss => boss.Items.Count())
+                    <i class="glyphicon glyphicon-chevron-right"></i>@zone.Name - @zone.Bosses.Sum(boss => boss.Items.Count()) items
                 </a>
                 <div class="list-group collapse" id="z-@zone.Id">
                     @foreach (var boss in zone.Bosses)
                     {
                         <a href="#b-@boss.Id" class="list-group-item" data-toggle="collapse" aria-expanded="false">
-                            <i class="glyphicon glyphicon-chevron-right"></i>@boss.Name - @boss.Items.Count()
+                            <i class="glyphicon glyphicon-chevron-right"></i>@boss.Name - @boss.Items.Count() items
                         </a>
                         <div class="list-group collapse" id="b-@boss.Id">
                             @foreach (var item in boss.Items)
                     {
-                                <a href="https://wowhead.com/item=@item.id&bonus=@item.bonusId" class="list-group-item">  @item.name - @item.PercentImprovement() - @item.forgeNumber </a>
+                                <a href="https://wowhead.com/item=@item.id&bonus=@item.bonusId" class="list-group-item">  @item.name - @item.PercentImprovement() upgrade @item.ForgeString() </a>
                             }
                         </div>
                     }
